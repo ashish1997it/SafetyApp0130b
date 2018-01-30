@@ -23,7 +23,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="MySafety"
+            android:text="@string/mysafety"
             android:textColor="@android:color/holo_blue_light"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -38,7 +38,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="40dp"
             android:ems="10"
-            android:hint="Enter Your Name"
+            android:hint="@string/enter_your_name"
             android:inputType="textPersonName" />
 
         <Button
@@ -48,7 +48,7 @@
             android:layout_alignEnd="@+id/name_field"
             android:layout_alignStart="@+id/name_field"
             android:layout_below="@+id/name_field"
-            android:text="Click to Change" />
+            android:text="@string/click_to_change" />
 
     </RelativeLayout>
 

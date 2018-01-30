@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">SafetyApp0130b</string>
     <string name="SafetyApp">SafetyApp</string>
+    <string name="click_to_change">Click to Change</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="mysafety">MySafety</string>
 </resources>
