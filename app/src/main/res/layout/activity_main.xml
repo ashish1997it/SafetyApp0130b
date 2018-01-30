@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="29dp"
+            android:layout_marginTop="10dp"
             android:text="MySafety"
             android:textColor="@android:color/holo_blue_light"
             android:textSize="24sp"
@@ -36,7 +36,7 @@
             android:layout_below="@+id/textView2"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="40dp"
             android:ems="10"
             android:hint="Enter Your Name"
             android:inputType="textPersonName" />
