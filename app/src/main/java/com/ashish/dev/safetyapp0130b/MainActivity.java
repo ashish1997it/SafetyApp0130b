@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 //1- Create child in root object
-                //2- Assign some value to the child object
+                //2- Assign some value to the child object tut8
                 String name = mNameField.getText().toString().trim();
                 mDatabase.child("Name").setValue(name);
             }
