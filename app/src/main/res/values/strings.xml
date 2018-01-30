@@ -4,4 +4,6 @@
     <string name="click_to_change">Click to Change</string>
     <string name="enter_your_name">Enter Your Name</string>
     <string name="mysafety">MySafety</string>
+    <string name="enter_your_email">Enter Your Email</string>
+    <string name="click_to_store">Click to Store</string>
 </resources>
