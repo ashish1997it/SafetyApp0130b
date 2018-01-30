@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mNameView;
     private ListView mUserList;
     private ArrayList<String> mUsernames = new ArrayList<>();
+    private ArrayList<String> mKeys = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 */
 
         //ListView tut13
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("demo01").child("UserListData");
         mUserList = (ListView) findViewById(R.id.user_list);
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mUsernames);
@@ -102,12 +103,18 @@ public class MainActivity extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 String value = dataSnapshot.getValue(String.class);
                 mUsernames.add(value);
+                String key = dataSnapshot.getKey();
+                mKeys.add(key);
                 arrayAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
+                String value = dataSnapshot.getValue(String.class);
+                String key = dataSnapshot.getKey(); //tut14
+                int index = mKeys.indexOf(key);
+                mUsernames.set(index, value);
+                arrayAdapter.notifyDataSetChanged();
             }
 
             @Override
