@@ -6,12 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
@@ -22,13 +26,17 @@ public class MainActivity extends AppCompatActivity {
     private EditText mNameField;
     private EditText mEmailField;
 
+    private TextView mNameView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Stored Data
+/*
         mFirebaseBtn = (Button) findViewById(R.id.firebase_btn);
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = FirebaseDatabase.getInstance().getReference(); //need
 
         mNameField = (EditText) findViewById(R.id.name_field);
         mEmailField = (EditText) findViewById(R.id.email_field);
@@ -58,5 +66,24 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+*/
+
+        //retrive Data
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Name"); //need
+        mNameView = (TextView) findViewById(R.id.name_view);
+
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String name = dataSnapshot.getValue().toString();
+                mNameView.setText("Name : "+name);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
 }
